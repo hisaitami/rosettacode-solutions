@@ -4,7 +4,7 @@
 (defn swapping-case [s]
   (let [->lower (fn [c] (+ c 32))
         ->upper (fn [c] (- c 32))
-        lower? (fn [c] (and (>= c 97) (<= 122)))] ; between \a and \z?
+        lower? (fn [c] (and (>= c 97) (<= c 122)))] ; between \a and \z?
     (->> (seq s)
          (map int)
          (map #(if (lower? %) (->upper %) (->lower %)))
