@@ -2,13 +2,16 @@
 ;; @see https://rosettacode.org/wiki/String_case
 
 (defn swapping-case [s]
-  (let [->lower (fn [c] (+ c 32))
-        ->upper (fn [c] (- c 32))
-        lower? (fn [c] (and (>= c 97) (<= c 122)))] ; between \a and \z?
+  (let [->lower #(+ % 32)
+        ->upper #(- % 32)
+        lower? #(and (>= % 97) (<= % 122)) ; between \a and \z?
+        upper? #(and (>= % 65) (<= % 90))  ; between \A and \Z?
+        swap #(cond
+                (lower? %) (->upper %)
+                (upper? %) (->lower %)
+                :else %)]
     (->> (seq s)
-         (map int)
-         (map #(if (lower? %) (->upper %) (->lower %)))
-         (map char)
+         (map (comp char swap int))
          (apply str))))
 
 (println
