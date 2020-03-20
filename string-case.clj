@@ -15,8 +15,9 @@
          (apply str))))
 
 (println
- (map #(% "alphaBETA") [clojure.string/upper-case
-                        clojure.string/lower-case
-                        clojure.string/capitalize
-                        swapping-case]))
+  ((juxt clojure.string/upper-case
+         clojure.string/lower-case
+         clojure.string/capitalize
+         swapping-case)
+   "alphaBETA"))
 ;; => (ALPHABETA alphabeta Alphabeta ALPHAbeta)
