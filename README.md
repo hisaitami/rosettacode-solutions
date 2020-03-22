@@ -1,6 +1,6 @@
 # rosettacode-solutions
 
-[Rosetta Code](https://rosettacode.org/wiki/Category:Programming_Tasks) solutions writtin in Clojure
+[Rosetta Code](https://rosettacode.org/wiki/Category:Programming_Tasks) solutions written in Clojure
 
 ## License
 
