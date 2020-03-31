@@ -78,29 +78,29 @@
                     (map first))))
 
 ;; show all eban numbers   ≤   1,000   (in a horizontal format),   and a count
-(println (eban 1000))
+;;(println (eban 1000))
 ;;=> (2 4 6 30 32 34 36 40 42 44 46 50 52 54 56 60 62 64 66)
 
 ;; show all eban numbers between   1,000   and   4,000   (inclusive),   and a count
-(println (eban 1000 4000))
+;;(println (eban 1000 4000))
 ;;=> (2000 2002 2004 2006 2030 2032 2034 2036 2040 2042 2044 2046 2050 2052 2054 2056 2060 2062 2064 2066 4000)
 
 ;; show a count of all eban numbers up and including      10,000
-(println (count  (eban 10000)))
+;;(println (count  (eban 10000)))
 ;;=> 79
 
 ;; show a count of all eban numbers up and including     100,000
-(println (count (eban 100000)))
+;;(println (count (eban 100000)))
 ;;=> 399
 
 ;; show a count of all eban numbers up and including   1,000,000
-(println (count (eban 1000000)))
+;;(println (count (eban 1000000)))
 ;;=> 399
 
 ;; show a count of all eban numbers up and including  10,000,000
-(println (count (eban 10000000)))
+;;(println (count (eban 10000000)))
 ;;=> 1599
 
 ;; show all output here.
-(println  (count (eban 1000000000)))
+;;(println  (count (eban 1000000000)))
 ;;=> 7999
