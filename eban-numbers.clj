@@ -102,5 +102,6 @@
 ;;=> 1599
 
 ;; show all output here.
-;;(println  (count (eban 1000000000)))
+;;(time (println  (count (eban 1000000000))))
 ;;=> 7999
+;;"Elapsed time: 1.5068966162066E7 msecs"
