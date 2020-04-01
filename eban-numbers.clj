@@ -70,6 +70,12 @@
     (str (count-in-english (quot n 1000000000000000000000)) " sextillion"
          (when (> (mod n 1000000000000000000000) 0) (str " " (count-in-english (mod n 1000000000000000000000)))))))
 
+;;(count-in-english 2020)
+;;=> "two thousand twenty"
+
+;;(count-in-english 1234567890)
+;;=> "one billion two hundred thirty four million five hundred sixty seven thousand eight hundred ninety"
+
 (defn eban
   ([end] (eban 1 end))
   ([start end] (->> (range start (inc end))
