@@ -20,7 +20,6 @@
 ;; Show the longest hailstone sequence number less than 100,000
 (->> (for [n (range 1 100000)]
        {:hailstone n :length (count (hailstone-seq n))})
-     (sort-by :length)
-     last)
+     (apply max-key :length))
 ;;=> {:hailstone 77031, :length 351}
 
