@@ -5,7 +5,7 @@
   "Returns the hailstone sequence from a starting positive integer n"
   [n]
   {:pre [(pos-int? n)]}
-  (if (= n 1) [1]
+  (if (= n 1) '(1)
       (let [nn (if (even? n) (/ n 2) (inc (* 3 n)))]
         (concat [n] (hailstone-seq nn)))))
 
