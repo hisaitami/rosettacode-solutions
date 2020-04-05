@@ -18,8 +18,7 @@
 ;;=> {:length 112, :starting-with (27 82 41 124), :ending-with (8 4 2 1)}
 
 ;; Show the longest hailstone sequence number less than 100,000
-(->> (for [n (range 1 100000)]
-       {:hailstone n :length (count (hailstone-seq n))})
-     (apply max-key :length))
+(apply max-key :length (for [n (range 1 100000)]
+                         {:hailstone n :length (count (hailstone-seq n))}))
 ;;=> {:hailstone 77031, :length 351}
 
