@@ -12,7 +12,7 @@
        (filter (partial re-matches (re-pattern (str ".+" x y ".*"))))
        (group-by #((comp not nil?) (re-matches (re-pattern (str ".*" z x y ".*")) %)))
        (reduce #(assoc %1 (first %2) (count (second %2))) {true 0 false 0})
-       ;(#(key (apply max-key val %)))
+       ;(#(if (zero? (% true)) false (> (% true) (% false)))) ;; Return boolean
        ))
 
 ;; "I before E when not preceded by C"
