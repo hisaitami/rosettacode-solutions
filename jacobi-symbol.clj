@@ -1,22 +1,9 @@
 ;; Task
 ;; @see https://rosettacode.org/wiki/Jacobi_symbol
 
-(defn gcd [a b]
-  (if (zero? b) a
-      (gcd b (mod a b))))
+(require '[rosettacode-solutions.math :refer [prime?]])
 
-(defn prime? [n]
-  (cond
-    (<= n 1) false
-    (= n 2) true
-    (even? n) false
-    :else (->> (filter odd? (range 3 n))
-               (map #(mod n %))
-               (not-any? zero?))))
-
-;;(def prime-seq (filter prime? (range)))
-;;(take 20 prime-seq)
-;;=> (2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71)
+(use '[rosettacode-solutions.greatest-common-divisor])
 
 ;; quadratic residues
 (defn qr [a p]
