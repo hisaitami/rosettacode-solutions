@@ -2,7 +2,6 @@
 ;; @see https://rosettacode.org/wiki/Averages/Root_mean_square
 
 (ns rosettacode-solutions.root-mean-square
-  (:require [rosettacode-solutions.math :as math])
   (:use [rosettacode-solutions.sum-of-squares]))
 
 (defn rms [xs]
