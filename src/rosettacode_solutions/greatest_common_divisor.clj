@@ -3,12 +3,13 @@
 
 (ns rosettacode-solutions.greatest-common-divisor)
 
-(defn gcd [a b]
-  (if (zero? b) a
-      (gcd b (mod a b))))
+(defn gcd
+  ([a] a)
+  ([a b]
+   (if (zero? b) a
+     (gcd b (mod a b))))
+  ([a b & more]
+   (apply gcd (gcd a b) more)))
 
 ;;(gcd 8 12)
 ;;=> 4
-
-;;(gcd 1071 462)
-;;=> 21
