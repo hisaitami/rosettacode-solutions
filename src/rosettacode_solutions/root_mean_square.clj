@@ -2,12 +2,11 @@
 ;; @see https://rosettacode.org/wiki/Averages/Root_mean_square
 
 (ns rosettacode-solutions.root-mean-square
-  (:require [rosettacode-solutions.math :as math]))
+  (:require [rosettacode-solutions.math :as math])
+  (:use [rosettacode-solutions.sum-of-squares]))
 
 (defn rms [xs]
-  (let [n (count xs)
-        sigma (reduce + (map math/square xs))]
-    (Math/sqrt (/ sigma n))))
+  (Math/sqrt (/ (sum-of-squares xs) (count xs))))
 
 ;;(rms [1 1 2 3 5])
 ;;=> 2.8284271247461903
