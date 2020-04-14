@@ -13,7 +13,18 @@
   (is (true? (coprime? 3 10)))
   (is (false? (coprime? 3 6)))
   (is (true? (coprime? 729 1000)))
-  (is (false? (coprime? 729 1296))))
+  (is (false? (coprime? 729 1296)))
+  (testing "only 1 and −1 are coprime to 0"
+    (is (true? (coprime? 0 1)))
+    (is (true? (coprime? 0 -1)))) ;; FIXME
+  (testing "two consecutive integers are coprime"
+    (let [x 12]
+      (is (true? (coprime? x (inc x))))))
+  (testing "if x is coprime for each y1 and y2 then x is coprime to b1 * b2"
+    (let [x 3 y1 5 y2 7]
+      (is (true? (and (coprime? x y1)
+                      (coprime? x y2)
+                      (coprime? x (* y1 y2))))))))
 
 (deftest pairwise-coprime?-test
   (is (true? (pairwise-coprime? 3 10 23)))    
