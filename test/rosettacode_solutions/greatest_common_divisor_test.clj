@@ -24,7 +24,12 @@
     (let [x 3 y1 5 y2 7]
       (is (true? (and (coprime? x y1)
                       (coprime? x y2)
-                      (coprime? x (* y1 y2))))))))
+                      (coprime? x (* y1 y2)))))))
+  (testing "2^x - 1 and 2^y - 1 are coprime"
+    (let [x 3 y 7]
+      (is (true? (and (coprime? x y)
+                      (coprime? (dec (bit-shift-left 1 x))
+                                (dec (bit-shift-left 1 y)))))))))
 
 (deftest pairwise-coprime?-test
   (is (true? (pairwise-coprime? 3 10 23)))    
