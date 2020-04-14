@@ -20,7 +20,7 @@
   (testing "two consecutive integers are coprime"
     (let [x 12]
       (is (true? (coprime? x (inc x))))))
-  (testing "if x is coprime for each y1 and y2 then x is coprime to b1 * b2"
+  (testing "if x is coprime for each y1 and y2 then x is coprime to y1 * y2"
     (let [x 3 y1 5 y2 7]
       (is (true? (and (coprime? x y1)
                       (coprime? x y2)
