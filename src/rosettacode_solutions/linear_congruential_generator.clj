@@ -4,6 +4,10 @@
 (ns rosettacode-solutions.linear-congruential-generator)
 
 (defn lcg [a c m]
+  {:pre [(> a 0)
+         (>= c 0)
+         (> m a)
+         (> m c)]}
   (fn [r_n]
     (mod (+ (* a r_n) c) m)))
 

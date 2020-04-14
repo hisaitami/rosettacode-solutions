@@ -9,12 +9,12 @@
          AssertionError #"Assert failed: \(> m a\)"
          (lcg 3 5 3)))
     (is (thrown-with-msg?
-         AssertionError #"Assert faild: \(> m b\)"
+         AssertionError #"Assert failed: \(> m c\)"
          (lcg 3 5 5)))
     (is (thrown-with-msg?
-         AssertionError #"Assert failed: \(> a 0\)")
-        (lcg 0 5 13))
+         AssertionError #"Assert failed: \(> a 0\)"
+         (lcg 0 5 5)))
     (is (thrown-with-msg?
-         AssertionError #"Assert failed: \(>= b 0\)")
-        (lcg 3 -1 13)))
-)
+         AssertionError #"Assert failed: \(>= c 0\)"
+         (lcg 3 -1 5))))
+  )
