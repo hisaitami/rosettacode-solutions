@@ -13,7 +13,12 @@
   (is (true? (coprime? 3 10)))
   (is (false? (coprime? 3 6)))
   (is (true? (coprime? 729 1000)))
-  (is (false? (coprime? 729 1296)))
-  (testing "it should work for pairwise coprime"
-    (is (true? (coprime? 3 10 23)))    
-    (is (false? (coprime? 3 15 10)))))
+  (is (false? (coprime? 729 1296))))
+
+(deftest pairwise-coprime?-test
+  (is (true? (pairwise-coprime? 3 10 23)))    
+  (testing "it doesn't mean they are pairwise coprime, even if they are coprime"
+    (let [a 3 b 15 c 10]
+      (is (and
+           (= 1 (gcd a b c))
+           (false? (pairwise-coprime? a b c)))))))
