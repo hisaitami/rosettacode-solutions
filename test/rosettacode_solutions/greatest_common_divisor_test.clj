@@ -16,7 +16,7 @@
   (is (false? (coprime? 729 1296)))
   (testing "only 1 and −1 are coprime to 0"
     (is (true? (coprime? 0 1)))
-    (is (true? (coprime? 0 -1)))) ;; FIXME
+    (is (true? (coprime? 0 -1))))
   (testing "two consecutive integers are coprime"
     (let [x 12]
       (is (true? (coprime? x (inc x))))))

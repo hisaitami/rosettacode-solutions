@@ -15,7 +15,7 @@
 ;;=> 4
 
 (defn coprime? [a b]
-  (= 1 (gcd a b)))
+  (= 1 (Math/abs (gcd a b))))
 
 ;;(coprime? 729 1000)
 ;;=> true
