@@ -21,4 +21,4 @@
 ;;=> true
 
 (defn pairwise-coprime? [a b c]
-  (= 1 (gcd a b) (gcd b c) (gcd c a)))
+  (and (coprime? a b) (coprime? b c) (coprime? c a)))

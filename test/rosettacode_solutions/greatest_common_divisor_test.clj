@@ -32,9 +32,10 @@
                                 (dec (bit-shift-left 1 y)))))))))
 
 (deftest pairwise-coprime?-test
-  (is (true? (pairwise-coprime? 3 10 23)))    
+  (is (true? (pairwise-coprime? 3 10 23)))
+  (is (true? (pairwise-coprime? -3 10 23)))
   (testing "it doesn't mean they are pairwise coprime, even if they are coprime"
     (let [a 3 b 15 c 10]
       (is (and
-           (= 1 (gcd a b c))
-           (false? (pairwise-coprime? a b c)))))))
+            (= 1 (gcd a b c))
+            (false? (pairwise-coprime? a b c)))))))
