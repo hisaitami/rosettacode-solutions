@@ -20,15 +20,12 @@
 ;;(coprime? 729 1000)
 ;;=> true
 
-(defn pairwise-coprime?
-  ([a b c]
-   (and (coprime? a b) (coprime? b c) (coprime? c a)))
-  ([a b c & more]
-   (as-> (conj more a b c) $
-     (map #(vector (second %) (drop (inc (first %)) $)) (map-indexed vector $))
-     (butlast $)
-     (map #(every? true? (map (partial coprime? (first %)) (second %))) $)
-     (every? true? $))))
+(defn pairwise-coprime? [& coll]
+  (->> (map-indexed vector coll)
+       (map (fn [[i x]] [x (drop (inc i) coll)]))
+       (butlast)
+       (mapcat (fn [[x ys]] (map (partial coprime? x) ys)))
+       (every? true?)))
 
 ;;(pairwise-coprime? 1 2 3 7)
 ;;=>true
