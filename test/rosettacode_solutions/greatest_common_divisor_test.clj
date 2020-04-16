@@ -34,6 +34,9 @@
 (deftest pairwise-coprime?-test
   (is (true? (pairwise-coprime? 3 10 23)))
   (is (true? (pairwise-coprime? -3 10 23)))
+  (is (true? (pairwise-coprime? 1 2 3 7 11 13)))
+  (is (false? (pairwise-coprime? 1 2 3 7 11 13 11)))
+  (is (false? (pairwise-coprime? 1 2 3 7 11 13 10)))
   (testing "it doesn't mean they are pairwise coprime, even if they are coprime"
     (let [a 3 b 15 c 10]
       (is (and
