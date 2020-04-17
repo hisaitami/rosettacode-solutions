@@ -42,3 +42,18 @@
       (is (and
             (= 1 (gcd a b c))
             (false? (pairwise-coprime? a b c)))))))
+
+(deftest phi-test
+  (testing "phi numbers of 1 from 20"
+    (is (= (map phi (range 1 21)) [1 1 2 2 4 2 6 4 6 4 10 4 12 6 8 8 16 6 18 8])))
+  (testing "phi(p) = p-1 where p is prime"
+    (let [p 1259]
+      (is (= (dec p) (phi p)))))
+  (testing "phi(n=p^k) = p^k * (1-1/p)"
+    (let [p 2, k 3, n (reduce * (repeat k p))]
+      (is (= (phi n)
+             (* n (- 1 (/ 1 p)))))))
+  (testing "phi(mn) = phi(m) * phi(n) when m and n are coprime"
+    (let [m 34, n 55]
+      (is (= (phi (* m n))
+             (* (phi m) (phi n)))))))
