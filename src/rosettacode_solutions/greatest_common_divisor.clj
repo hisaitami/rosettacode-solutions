@@ -7,7 +7,7 @@
   ([a] a)
   ([a b]
    (if (zero? b) a
-     (gcd b (mod a b))))
+       (recur b (mod a b))))
   ([a b & more]
    (apply gcd (gcd a b) more)))
 
