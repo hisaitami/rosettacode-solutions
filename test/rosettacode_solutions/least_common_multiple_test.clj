@@ -11,4 +11,6 @@
     (is (thrown-with-msg?
          AssertionError
          #"Assert failed: \(not= 0 a b\)"
-         (lcm 0 0)))))
+         (lcm 0 0))))
+  (testing "it should work with two or more integers"
+    (is (= 30 (lcm 2 6 15)))))

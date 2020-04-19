@@ -4,9 +4,12 @@
 (ns rosettacode-solutions.least-common-multiple
   (:require [rosettacode-solutions.greatest-common-divisor :refer [gcd]]))
 
-(defn lcm [a b]
-  {:pre [(not= 0 a b)]}
-  (/ (Math/abs (* a b)) (gcd a b)))
+(defn lcm
+  ([a b]
+   {:pre [(not= 0 a b)]}
+   (/ (Math/abs (* a b)) (gcd a b)))
+  ([a b & more]
+   (apply lcm (lcm a b) more)))
 
 ;;(lcm 12 18)
 ;;=> 36
@@ -14,3 +17,7 @@
 ;; returns 0 if either a or b is 0
 ;;(lcm 0 12)
 ;;=> 0
+
+;;(lcm 2 6 15)
+;;=> 30
+
