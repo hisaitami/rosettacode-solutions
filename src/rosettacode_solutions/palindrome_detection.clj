@@ -16,10 +16,8 @@
 ;(palindrome? "NIψONANOMHMATAMHMONANOψIN")
 
 ;; Detect palindrome if white-space and punctuation is ignored and case-insensitive
-;; (->> "No lemon, no melon"
-;;      (#(clojure.string/replace % #"[\s.,:;!?]+" ""))   ; ignore white-space and punctuation
-;;      (clojure.string/lower-case)                       ; case-insensitive comparison
+;; (-> "No lemon, no melon"
+;;     (clojure.string/replace #"[\s.,:;!?]+" "")   ; ignore white-space and punctuation
+;;     (clojure.string/lower-case)                  ; case-insensitive comparison
 ;;     palindrome?)
 ;;=> true
-
-
