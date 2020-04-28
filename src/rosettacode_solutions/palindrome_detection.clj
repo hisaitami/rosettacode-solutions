@@ -4,7 +4,7 @@
 (ns rosettacode-solutions.palindrome-detection)
 
 (defn palindrome? [s]
-  (= (->> s str seq) (->> s str reverse)))
+  (= (-> s str seq) (-> s str reverse)))
 
 ;(palindrome? "SATOR AREPO TENET OPERA ROTAS")
 ;;=> true
